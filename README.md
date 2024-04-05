@@ -19,7 +19,8 @@ Services that MongoDB Realm offer's
 <details>
 <summary>MongoDB database</summary>
 
-    **DBaaS**: Database as a Service (DBaaS) is a cloud computing service that allows users to access and use a cloud database system without purchasing and setting up their own hardware, installing their own database software, or managing the database themselves.
+**DBaaS**: Database as a Service (DBaaS) is a cloud computing service that allows users to access and use a cloud database system without purchasing and setting up their own hardware, installing their own database software, or managing the database themselves.
+
 </details>
 
 <details>
@@ -34,24 +35,28 @@ Services that MongoDB Realm offer's
 <summary>GraphQL</summary>
 
 **GraphQL**: GraphQL is a query language, architecture style, and set of tools for creating and manipulating APIs.
+
 </details>
 
 <details>
 <summary>Hosting</summary>
 
 **Hosting**: Hosting is a service that provides storage and computing resources for websites and related services.
+
 </details>
 
 <details>
 <summary>Push Notifications</summary>
 
 **Push notifications**: are messages that are sent to a user's device without a specific request from the client.
+
 </details>
 
 <details>
 <summary>SDK Options</summary>
 
 **SDK**: SDK stands for software development kit, which is a set of tools that developers use to create applications for specific platforms.
+
 </details>
 
 
