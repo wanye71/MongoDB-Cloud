@@ -4,7 +4,7 @@
 
 # MongoDB Cloud
 
-## Table of Contents
+# Table of Contents
 1. [MongoDB Realm](#mongodb-realm)
 2. [Application Setup](#application-setup)
 3. [Realm SDK](#realm-sdk)
@@ -14,7 +14,7 @@
 7. [Functions and Triggers](#functions-and-triggers)
 8. [Schemas and Rules/Roles](#schemas-and-rulesroles)
 
-### MongoDB Realm
+## MongoDB Realm
 Services that MongoDB Realm offer's
 - **MongoDB database**
     **DBaaS**: Database as a Service (DBaaS) is a cloud computing service that allows users to access and use a cloud database system without purchasing and setting up their own hardware, installing their own database software, or managing the database themselves.
@@ -28,18 +28,19 @@ Services that MongoDB Realm offer's
     **Push notifications**: are messages that are sent to a user's device without a specific request from the client.
 - **SDK Options**
     **SDK**: SDK stands for software development kit, which is a set of tools that developers use to create applications for specific platforms.
+### Creating a Realm application
 
-### Application Setup
+## Application Setup
 
-### Realm SDK
+## Realm SDK
 
-### Data Operations
+## Data Operations
 
-### Email and Password Auth
+## Email and Password Auth
 
-### More Data Operations
+## More Data Operations
 
-### Functions and Triggers
+## Functions and Triggers
 
-### Schemas and Rules/Roles
+## Schemas and Rules/Roles
 
