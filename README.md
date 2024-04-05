@@ -15,6 +15,19 @@
 8. [Schemas and Rules/Roles](#schemas-and-rulesroles)
 
 ### MongoDB Realm
+Services that MongoDB Realm offer's
+- **MongoDB database**
+    **DBaaS**: Database as a Service (DBaaS) is a cloud computing service that allows users to access and use a cloud database system without purchasing and setting up their own hardware, installing their own database software, or managing the database themselves.
+- **Authentication**
+- **Sync**
+- **GraphQL**
+    **GraphQL**: GraphQL is a query language, architecture style, and set of tools for creating and manipulating APIs.
+- **Hosting**
+    **Hosting**: Hosting is a service that provides storage and computing resources for websites and related services.
+- **Push Notifications**
+    **Push notifications**: are messages that are sent to a user's device without a specific request from the client.
+- **SDK Options**
+    **SDK**: SDK stands for software development kit, which is a set of tools that developers use to create applications for specific platforms.
 
 ### Application Setup
 
