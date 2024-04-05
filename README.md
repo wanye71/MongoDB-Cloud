@@ -16,8 +16,10 @@
 
 ## MongoDB Realm
 Services that MongoDB Realm offer's
-- **MongoDB database**
+<details>
+<summary>MongoDB database</summary>
     **DBaaS**: Database as a Service (DBaaS) is a cloud computing service that allows users to access and use a cloud database system without purchasing and setting up their own hardware, installing their own database software, or managing the database themselves.
+</details>
 - **Authentication**
 - **Sync**
 - **GraphQL**
