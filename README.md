@@ -5,6 +5,7 @@
 # MongoDB Cloud
 
 # Table of Contents
+## Setup
 1. [MongoDB Realm](#mongodb-realm)
 2. [Application Setup](#application-setup)
 3. [Realm SDK](#realm-sdk)
@@ -13,6 +14,8 @@
 6. [More Data Operations](#more-data-operations)
 7. [Functions and Triggers](#functions-and-triggers)
 8. [Schemas and Rules/Roles](#schemas-and-rulesroles)
+## TODO
+9. [Application Setup](#application-setup)
 
 ## MongoDB Realm
 Services that MongoDB Realm offer's
@@ -59,10 +62,14 @@ Services that MongoDB Realm offer's
 
 </details>
 
-
 ### Creating a Realm application
 
 ## Application Setup
+### Get Tailwinds CSS CDN Link
+[Tailwind CSS](https://cdnjs.com/libraries/tailwindcss)
+```html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/4.0.0-alpha.9/lib.min.js">
+```
 
 ## Realm SDK
 
