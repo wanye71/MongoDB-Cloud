@@ -8,7 +8,7 @@
 ## Setup
 1. [MongoDB Realm](#mongodb-realm)
 2. [Application Setup](#application-setup)
-3. [Realm SDK](#realm-sdk)
+3. [Realm SDK](#install-realm-sdk)
 4. [Data Operations](#data-operations)
 5. [Email and Password Auth](#email-and-password-auth)
 6. [More Data Operations](#more-data-operations)
