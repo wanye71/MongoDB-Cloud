@@ -20,6 +20,7 @@
     - [Anonymous authentication](#anonymous-authentication)
 11. [Data Operations](#data-operations)
     - [Create Database and collection](#create-database-and-collection)
+12. [Implement Anonymous User Authentication](#implement-anonymous-user-authentication)
 
 ## MongoDB Realm
 Services that MongoDB Realm offer's
@@ -94,7 +95,39 @@ Services that MongoDB Realm offer's
 6. Add **Role** amd set permission to **readAndWriteAll**
 7. Click **Review Draft & Deploy**
 
+## Implement Anonymous User Authentication
+```javascript
+const REALM_APP = new Realm.App({
+            id: "mongocloudapp-psyui"
+        })
+
+        const AUTHENTICATE_USER_ANONYMOUSLY = async ()=> {
+           const  ANOVYNOUS_USER = await REALM_APP.logIn(Realm.Credentials.anonymous())
+           console.log(ANOVYNOUS_USER)
+        }
+
+        if(!REALM_APP.currentUser.isLoggedIn){
+            AUTHENTICATE_USER_ANONYMOUSLY()
+        }
+
+        console.log(REALM_APP?.currentUser);
+
+        const SITE_LIST = [{}]
+
+        const SITE_LIST_CONTAINER_DIV =  document.getElementById("html-document-id");
+
+        SITE_LIST.forEach((siteData) => {
+        const SITE_ITEM_FRAGMENT = `
+        HTML
+        `;
+
+        SITE_LIST_CONTAINER_DIV.insertAdjacentHTML("beforeend", SITE_ITEM_FRAGMENT)
+
+        });
+```
+
 ## Email and Password Auth
+1. Authenticate user
 
 ## More Data Operations
 

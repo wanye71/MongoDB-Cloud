@@ -78,6 +78,21 @@
     </div>
 
     <script type="text/javascript">
+        const REALM_APP = new Realm.App({
+            id: "mongocloudapp-psyui"
+        })
+
+        const AUTHENTICATE_USER_ANONYMOUSLY = async ()=> {
+           const  ANOVYNOUS_USER = await REALM_APP.logIn(Realm.Credentials.anonymous())
+           console.log(ANOVYNOUS_USER)
+        }
+
+        if(!REALM_APP.currentUser.isLoggedIn){
+            AUTHENTICATE_USER_ANONYMOUSLY()
+        }
+
+        console.log(REALM_APP?.currentUser);
+
         const SITE_LIST = [
     {
         "sight_id": 1,
@@ -129,7 +144,7 @@
     }
 ];
 
-    const SITE_LIST_CONTAINER_DIV = document.getElementById("site-list");
+    const SITE_LIST_CONTAINER_DIV =  document.getElementById("site-list");
 
     SITE_LIST.forEach((siteData) => {
         const SITE_ITEM_FRAGMENT = `
