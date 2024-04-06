@@ -23,6 +23,7 @@
 12. [Implement Anonymous User Authentication](#implement-anonymous-user-authentication)
 13. [Implement adding likes and likes count](#implement-adding-likes-and-likes-count)
 14. [Email and Password Auth](#email-and-password-auth)
+15. [Implementing email user login](#implementing-email-user-login)
 
 ## MongoDB Realm
 Services that MongoDB Realm offer's
@@ -127,6 +128,7 @@ const REALM_APP = new Realm.App({
 
         });
 ```
+
 ## Implement adding likes and likes count
 ```javascript
  async function onVoteButtonClicked(siteID, imageName){
@@ -168,9 +170,41 @@ const REALM_APP = new Realm.App({
 7. Click **Save Draft**
 
 
+## Implementing email user login
+```javascript
+<button
+    onclick="onLoginButtonClicked()"
+    id="login-button"
+    type="button"
+    class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+>
+<script type="text/javascript">
+      const EMAIL_FIELD = document.getElementById("email-address");
+      const PASSWORD_FIELD = document.getElementById("password");
+      const LOGIN_BUTTON = document.getElementById("login-button");
+
+      const REALM_APP = new Realm.App({
+        id: "mongocloudapp-psyui",
+      });
+
+      async function onLoginButtonClicked() {
+        try {
+          const EMAIL_PASSWORD_CREDENTIALS = await Realm.Credentials.emailPassword(
+            EMAIL_FIELD.value.toLowerCase().trim(),
+            PASSWORD_FIELD.value
+          );
+          const EMAIL_PASSWORD_USER = await REALM_APP.logIn(EMAIL_PASSWORD_CREDENTIALS);
+          window.location.href = "index.html"
+        } catch(e) {
+          console.log(e)
+        }
+      }
+```
+
 ## More Data Operations
 
 ## Functions and Triggers
 
 ## Schemas and Rules/Roles
 
+### 90&*O@0Fqi02UVrQ
