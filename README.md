@@ -21,6 +21,7 @@
 11. [Data Operations](#data-operations)
     - [Create Database and collection](#create-database-and-collection)
 12. [Implement Anonymous User Authentication](#implement-anonymous-user-authentication)
+13. [Implement adding likes and likes count](#implement-adding-likes-and-likes-count)
 
 ## MongoDB Realm
 Services that MongoDB Realm offer's
@@ -124,6 +125,36 @@ const REALM_APP = new Realm.App({
         SITE_LIST_CONTAINER_DIV.insertAdjacentHTML("beforeend", SITE_ITEM_FRAGMENT)
 
         });
+```
+## Implement adding likes and likes count
+```javascript
+ async function onVoteButtonClicked(siteID, imageName){
+     const INSERT_VOTE = await REALM_APP.currentUser.mongoClient("mongodb-atlas")
+      .db("vinividevici")
+      .collection("likes")
+      .insertOne({
+        site_id: siteID.toString(),
+        voter_id: REALM_APP.currentUser.id,
+        image_name: imageName
+      });
+      console.log(INSERT_VOTE);
+
+      const BUTTON_TO_UPDATE = document.getElementById(`vote-count-${siteID}`)
+      const VOTE_COUNT = await REALM_APP.currentUser.mongoClient("mongodb-atlas")
+      .db("vinividevici")
+      .collection("likes")
+      .count({
+        site_id: siteID.toString()
+      });
+
+      BUTTON_TO_UPDATE.innerText = VOTE_COUNT;
+    }
+<button
+    onclick="onVoteButtonClicked(${siteData.sight_id}, '${siteData.name}')"
+    id="vote-button-${siteData.sight_id}"
+    type="button"
+    class="vote-button relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+>
 ```
 
 ## Email and Password Auth

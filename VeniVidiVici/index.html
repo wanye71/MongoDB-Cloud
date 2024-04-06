@@ -93,6 +93,7 @@
 
         console.log(REALM_APP?.currentUser);
 
+        
         const SITE_LIST = [
     {
         "sight_id": 1,
@@ -108,8 +109,8 @@
     },
     {
         "sight_id": 3,
-        "name": "St. Paul's Cathedral",
-        "location": "Abidjan, Cote D'Ivoire",
+        "name": "St. Pauls Cathedral",
+        "location": "Abidjan, Cote DIvoire",
         "image_url": "https://firebasestorage.googleapis.com/v0/b/wazobia-a843d.appspot.com/o/st-pauls-cathedral.jpg?alt=media&token=dab2fbf0-e81b-425f-83e5-03fc0cdfb41b"
     },
     {
@@ -143,15 +144,39 @@
         "image_url": "https://firebasestorage.googleapis.com/v0/b/wazobia-a843d.appspot.com/o/place-souvenir.jpg?alt=media&token=d6f7ea5f-5e13-4198-b979-b56f861d8c3e"
     }
 ];
+    
+    async function onVoteButtonClicked(siteID, imageName){
+     const INSERT_VOTE = await REALM_APP.currentUser.mongoClient("mongodb-atlas")
+      .db("vinividevici")
+      .collection("likes")
+      .insertOne({
+        site_id: siteID.toString(),
+        voter_id: REALM_APP.currentUser.id,
+        image_name: imageName
+      });
+      console.log(INSERT_VOTE);
+
+      const BUTTON_TO_UPDATE = document.getElementById(`vote-count-${siteID}`)
+      const VOTE_COUNT = await REALM_APP.currentUser.mongoClient("mongodb-atlas")
+      .db("vinividevici")
+      .collection("likes")
+      .count({
+        site_id: siteID.toString()
+      });
+
+      BUTTON_TO_UPDATE.innerText = VOTE_COUNT;
+    }
 
     const SITE_LIST_CONTAINER_DIV =  document.getElementById("site-list");
 
     SITE_LIST.forEach((siteData) => {
-        const SITE_ITEM_FRAGMENT = `
-                <div class="group site-card">
+        const SITE_ITEM_FRAGMENT = `-
+                <div id="${siteData.sight_id}" class="group site-card">
                     <div class="mb-2">
                       <span class="relative z-0 inline-flex shadow-sm rounded-md">
                         <button
+                          onclick="onVoteButtonClicked(${siteData.sight_id}, '${siteData.name}')"
+                          id="vote-button-${siteData.sight_id}"
                           type="button"
                           class="vote-button relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                         >
@@ -172,6 +197,7 @@
                           Like
                         </button>
                         <button
+                        id="vote-count-${siteData.sight_id}"
                           type="button"
                           class="vote-count -ml-px relative inline-flex items-center px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
                         >

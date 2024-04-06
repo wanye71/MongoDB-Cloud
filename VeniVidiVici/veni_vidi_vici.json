@@ -1,0 +1,50 @@
+[
+    {
+        "sight_id": 1,
+        "name": "Lagos Harbour",
+        "location": "Lagos, Nigeria",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/wazobia-a843d.appspot.com/o/lagos-harbour.jpg?alt=media&token=3759ab64-709b-42fb-9855-65f8fb8a5fbf"
+    },
+    {
+        "sight_id": 2,
+        "name": "African Renaissance Monument",
+        "location": "Dakar, Senegal",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/wazobia-a843d.appspot.com/o/african-renaissance-monument.jpg?alt=media&token=2690587e-e366-4150-9e8e-4b7e1dc67cf4"
+    },
+    {
+        "sight_id": 3,
+        "name": "St. Paul's Cathedral",
+        "location": "Abidjan, Cote D'Ivoire",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/wazobia-a843d.appspot.com/o/st-pauls-cathedral.jpg?alt=media&token=dab2fbf0-e81b-425f-83e5-03fc0cdfb41b"
+    },
+    {
+        "sight_id": 4,
+        "name": "Fathala Wildlife Reserve",
+        "location": "Karang, Senegal",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/wazobia-a843d.appspot.com/o/fathala.jpg?alt=media&token=693134b5-c485-486e-892c-c9a5ce520458"
+    },
+    {
+        "sight_id": 5,
+        "name": "Tamala Resort",
+        "location": "Serrekunda, Gambia",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/wazobia-a843d.appspot.com/o/tamala-resort.jpg?alt=media&token=67c09ee6-7db4-497a-b40c-8b9a74e74890"
+    },
+    {
+        "sight_id": 6,
+        "name": "Black Start Monument",
+        "location": "Accra, Ghana",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/wazobia-a843d.appspot.com/o/black-start-square.jpg?alt=media&token=668a24b1-2585-4a01-8bb5-d1cbd68be951"
+    },
+    {
+        "sight_id": 7,
+        "name": "Independence Arch",
+        "location": "Accra, Ghana",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/wazobia-a843d.appspot.com/o/independence-arch.jpg?alt=media&token=fad917fb-c489-43ce-afef-0df56fa59914"
+    },
+    {
+        "sight_id": 8,
+        "name": "Place du Souvenir Africain",
+        "location": "Dakar, Senegal",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/wazobia-a843d.appspot.com/o/place-souvenir.jpg?alt=media&token=d6f7ea5f-5e13-4198-b979-b56f861d8c3e"
+    }
+]
