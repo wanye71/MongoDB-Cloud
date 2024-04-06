@@ -18,6 +18,8 @@
     - [Install Tailwinds CSS](#install-tailwinds-css)
 10. [Install Realm SDK](#install-realm-sdk)
     - [Anonymous authentication](#anonymous-authentication)
+11. [Data Operations](#data-operations)
+    - [Create Database and collection](#create-database-and-collection)
 
 ## MongoDB Realm
 Services that MongoDB Realm offer's
@@ -85,6 +87,12 @@ Services that MongoDB Realm offer's
 5. Click **Deploy**
 
 ## Data Operations
+### Create Database and collection
+1. Go to **Rules**
+2. Click **Add Collection**
+3. Name the collection
+6. Add **Role** amd set permission to **readAndWriteAll**
+7. Click **Review Draft & Deploy**
 
 ## Email and Password Auth
 
