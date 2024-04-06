@@ -14,8 +14,10 @@
 6. [More Data Operations](#more-data-operations)
 7. [Functions and Triggers](#functions-and-triggers)
 8. [Schemas and Rules/Roles](#schemas-and-rulesroles)
-## TODO
 9. [Application Setup](#application-setup)
+    - [Install Tailwinds CSS](#install-tailwinds-css)
+10. [Install Realm SDK](#install-realm-sdk)
+    - [Anonymous authentication](#anonymous-authentication)
 
 ## MongoDB Realm
 Services that MongoDB Realm offer's
@@ -65,17 +67,22 @@ Services that MongoDB Realm offer's
 ### Creating a Realm application
 
 ## Application Setup
-### Get Tailwinds CSS CDN Link
+### Install Tailwinds CSS
 [Tailwind CSS](https://cdnjs.com/libraries/tailwindcss)
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/4.0.0-alpha.9/lib.min.js">
 ```
-## Realm SDK
-### Install into html page 'header'
+### Install Realm SDK
 [Realm SDK](https://www.mongodb.com/docs/realm/web/quickstart/)
 ```html
 <script src="https://unpkg.com/realm-web/dist/bundle.iife.js"></script>
 ```
+### Anonymous authentication
+1. Select **Authentication** under **DATA ACCESS**
+2. Under **Providers** select **Allow users to log in anonymously**
+3. Turn on **Provider Enabled** and click **'Save Draft'**
+4. Click through prompts in popup window, and then click **Review Draft & Deploy**
+5. Click **Deploy**
 
 ## Data Operations
 
