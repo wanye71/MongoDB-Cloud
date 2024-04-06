@@ -22,6 +22,7 @@
     - [Create Database and collection](#create-database-and-collection)
 12. [Implement Anonymous User Authentication](#implement-anonymous-user-authentication)
 13. [Implement adding likes and likes count](#implement-adding-likes-and-likes-count)
+14. [Email and Password Auth](#email-and-password-auth)
 
 ## MongoDB Realm
 Services that MongoDB Realm offer's
@@ -158,7 +159,14 @@ const REALM_APP = new Realm.App({
 ```
 
 ## Email and Password Auth
-1. Authenticate user
+1. Go to App Services
+2. Click **Authentication**
+3. Click **Email/Passwords**
+4. Enable Provider
+5. Under **User Confirmation** select **Automatically confirm users**
+6. Under Password Reset, select **Send a password reset email**
+7. Click **Save Draft**
+
 
 ## More Data Operations
 
