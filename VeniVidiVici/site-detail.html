@@ -242,16 +242,25 @@
       const comment_box = document.getElementById("comment");
 
       try {
-        const insert_comment = await realm_app.currentUser
-            .mongoClient("mongodb-atlas")
-            .db("vinividevici")
-            .collection("comments")
-            .insertOne({
-              site_id: site_id_param,
-              comment: comment_box.value,
-              commenter: realm_app?.currentUser?.id
-            });
-            console.log(insert_comment);
+        const insert_commennt_with_function = await realm_app.currentUser.callFunction("COMMENTS",
+        {
+          site_id: site_id_param,
+          comment: comment_box.value,
+          commenter: realm_app?.currentUser?.id
+        }
+      );
+        console.log(insert_commennt_with_function)
+
+        // const insert_comment = await realm_app.currentUser
+        //     .mongoClient("mongodb-atlas")
+        //     .db("vinividevici")
+        //     .collection("comments")
+        //     .insertOne({
+        //       site_id: site_id_param,
+        //       comment: comment_box.value,
+        //       commenter: realm_app?.currentUser?.id
+        //     });
+        //     console.log(insert_comment);
 
           const comments_from_db = await realm_app.currentUser
             .mongoClient("mongodb-atlas")
