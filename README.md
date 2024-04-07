@@ -5,7 +5,9 @@
 # MongoDB Cloud
 
 # Table of Contents
+
 ## Setup
+
 1. [MongoDB Realm](#mongodb-realm)
 2. [Application Setup](#application-setup)
 3. [Realm SDK](#install-realm-sdk)
@@ -15,7 +17,7 @@
 7. [Functions and Triggers](#functions-and-triggers)
 8. [Schemas and Rules/Roles](#schemas-and-rulesroles)
 9. [Application Setup](#application-setup)
-    - [Install Tailwinds CSS](#install-tailwinds-css)
+   - [Install Tailwinds CSS](#install-tailwinds-css)
 10. [Install Realm SDK](#install-realm-sdk)
     - [Anonymous authentication](#anonymous-authentication)
 11. [Data Operations](#data-operations)
@@ -24,9 +26,13 @@
 13. [Implement adding likes and likes count](#implement-adding-likes-and-likes-count)
 14. [Email and Password Auth](#email-and-password-auth)
 15. [Implementing email user login](#implementing-email-user-login)
+16. [Adding custom user data](#adding-custom-user-data)
+17. [Adding comments](#adding-comments)
 
 ## MongoDB Realm
+
 Services that MongoDB Realm offer's
+
 <details>
 <summary>MongoDB database</summary>
 
@@ -73,17 +79,28 @@ Services that MongoDB Realm offer's
 ### Creating a Realm application
 
 ## Application Setup
+
 ### Install Tailwinds CSS
+
 [Tailwind CSS](https://cdnjs.com/libraries/tailwindcss)
+
 ```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/4.0.0-alpha.9/lib.min.js">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/4.0.0-alpha.9/lib.min.js"
+/>
 ```
+
 ### Install Realm SDK
+
 [Realm SDK](https://www.mongodb.com/docs/realm/web/quickstart/)
+
 ```html
 <script src="https://unpkg.com/realm-web/dist/bundle.iife.js"></script>
 ```
+
 ### Anonymous authentication
+
 1. Select **Authentication** under **DATA ACCESS**
 2. Under **Providers** select **Allow users to log in anonymously**
 3. Turn on **Provider Enabled** and click **'Save Draft'**
@@ -91,45 +108,48 @@ Services that MongoDB Realm offer's
 5. Click **Deploy**
 
 ## Data Operations
+
 ### Create Database and collection
+
 1. Go to **Rules**
 2. Click **Add Collection**
 3. Name the collection
-6. Add **Role** amd set permission to **readAndWriteAll**
-7. Click **Review Draft & Deploy**
+4. Add **Role** amd set permission to **readAndWriteAll**
+5. Click **Review Draft & Deploy**
 
 ## Implement Anonymous User Authentication
+
 ```javascript
 const REALM_APP = new Realm.App({
-            id: "mongocloudapp-psyui"
-        })
+  id: "mongocloudapp-psyui",
+});
 
-        const AUTHENTICATE_USER_ANONYMOUSLY = async ()=> {
-           const  ANOVYNOUS_USER = await REALM_APP.logIn(Realm.Credentials.anonymous())
-           console.log(ANOVYNOUS_USER)
-        }
+const AUTHENTICATE_USER_ANONYMOUSLY = async () => {
+  const ANOVYNOUS_USER = await REALM_APP.logIn(Realm.Credentials.anonymous());
+  console.log(ANOVYNOUS_USER);
+};
 
-        if(!REALM_APP.currentUser.isLoggedIn){
-            AUTHENTICATE_USER_ANONYMOUSLY()
-        }
+if (!REALM_APP.currentUser.isLoggedIn) {
+  AUTHENTICATE_USER_ANONYMOUSLY();
+}
 
-        console.log(REALM_APP?.currentUser);
+console.log(REALM_APP?.currentUser);
 
-        const SITE_LIST = [{}]
+const SITE_LIST = [{}];
 
-        const SITE_LIST_CONTAINER_DIV =  document.getElementById("html-document-id");
+const SITE_LIST_CONTAINER_DIV = document.getElementById("html-document-id");
 
-        SITE_LIST.forEach((siteData) => {
-        const SITE_ITEM_FRAGMENT = `
+SITE_LIST.forEach((siteData) => {
+  const SITE_ITEM_FRAGMENT = `
         HTML
         `;
 
-        SITE_LIST_CONTAINER_DIV.insertAdjacentHTML("beforeend", SITE_ITEM_FRAGMENT)
-
-        });
+  SITE_LIST_CONTAINER_DIV.insertAdjacentHTML("beforeend", SITE_ITEM_FRAGMENT);
+});
 ```
 
 ## Implement adding likes and likes count
+
 ```javascript
  async function onVoteButtonClicked(siteID, imageName){
      const INSERT_VOTE = await REALM_APP.currentUser.mongoClient("mongodb-atlas")
@@ -161,6 +181,7 @@ const REALM_APP = new Realm.App({
 ```
 
 ## Email and Password Auth
+
 1. Go to App Services
 2. Click **Authentication**
 3. Click **Email/Passwords**
@@ -169,8 +190,8 @@ const REALM_APP = new Realm.App({
 6. Under Password Reset, select **Send a password reset email**
 7. Click **Save Draft**
 
-
 ## Implementing email user login
+
 ```javascript
 <button
     onclick="onLoginButtonClicked()"
@@ -201,10 +222,101 @@ const REALM_APP = new Realm.App({
       }
 ```
 
+## Adding custom user data
+
+1. Go to **App Users**
+2. Click **User Settings**
+3. Enable **"Custom User Data"**
+
+## Adding comments
+```javascript
+function storage() {
+  const url_params = new URLSearchParams(window.location.search);
+  const site_id_param = url_params.get("site-id");
+  const site_location_param = url_params.get("location");
+
+  console.log(site_id_param + "\n" + site_location_param);
+
+  const site_list = [{}];
+
+  const site_data = site_list.find(
+    (site) => site_id_param === site.sight_id.toString()
+  );
+
+  const site_image = document.getElementById("site-image");
+  const site_name = document.getElementById("site-name");
+  const site_location = document.getElementById("site-location");
+
+  site_image.src = site_data.image_url;
+  site_image.alt = site_data.name;
+  site_name.innerText = site_data.name;
+  site_location.innerText = site_data.location;
+  async function onCommentButtonClicked() {
+    const comment_box = document.getElementById("comment");
+    try {
+      const insert_comment = await realm_app.currentUser
+        .mongoClient("mongodb-atlas")
+        .db("vinividevici")
+        .collection("comments")
+        .insertOne({
+          site_id: site_id_param,
+          comment: comment_box.value,
+          commenter: realm_app?.currentUser?.id,
+        });
+      console.log(insert_comment);
+
+      const comments_from_db = await realm_app.currentUser
+        .mongoClient("mongodb-atlas")
+        .db("vinividevici")
+        .collection("comments")
+        .find({
+          site_id: site_id_param,
+        });
+      console.log(comments_from_db);
+
+      const comments_container = document.getElementById(
+        "comment-list-container"
+      );
+      comments_container.innerHTML = "";
+      comments_from_db.forEach((comment) => {
+        const single_comment = `
+                            <li>
+                              <div class="flex space-x-3">
+                                <div>
+                                  <div class="mt-1 text-sm text-gray-700">
+                                    <p class="comment-text">${comment.comment}</p>
+                                  </div>
+                                  <div class="mt-2 text-sm space-x-2">
+                                    <button
+                                      type="button"
+                                      class="text-gray-900 font-medium"
+                                    >
+                                      Delete
+                                    </button>
+                                    <button
+                                      type="button"
+                                      class="text-gray-900 font-medium"
+                                    >
+                                      Update
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            `;
+        comments_container.insertAdjacentHTML("beforeend", single_comment);
+      });
+      comment_box.value = "";
+    } catch (e) {
+      console.log(e + "What the heck?");
+    }
+}
+```
+
 ## More Data Operations
 
 ## Functions and Triggers
 
 ## Schemas and Rules/Roles
 
-### 90&*O@0Fqi02UVrQ
+### 90&\*O@0Fqi02UVrQ
