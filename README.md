@@ -312,12 +312,5 @@ function storage() {
     }
 }
 ```
-## Deleting comments
-
-## More Data Operations
-
-## Functions and Triggers
-
-## Schemas and Rules/Roles
 
 
