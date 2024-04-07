@@ -312,6 +312,7 @@ function storage() {
     }
 }
 ```
+## Deleting comments
 
 ## More Data Operations
 
@@ -319,4 +320,4 @@ function storage() {
 
 ## Schemas and Rules/Roles
 
-### 90&\*O@0Fqi02UVrQ
+
